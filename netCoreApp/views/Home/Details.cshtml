@@ -1,8 +1,13 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿@model netCoreApp.viewModels.HomeDetailViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>@Model.title</title>
 </head>
 <body>
+  
+
+    Name :@Model.Employee.Name
+    Department: @Model.Employee.Department
 </body>
 </html>
 

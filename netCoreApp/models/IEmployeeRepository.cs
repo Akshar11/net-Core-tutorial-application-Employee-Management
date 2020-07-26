@@ -8,5 +8,6 @@ namespace netCoreApp.models
     public interface IEmployeeRepository
     {
         Employee GetEmployeeById(int id);
+        IEnumerable<Employee> getAllEmployees();
     }
 }

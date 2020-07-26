@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using netCoreApp.models;
+using netCoreApp.viewModels;
 
 namespace netCoreApp.controllers
 {
@@ -15,13 +16,15 @@ namespace netCoreApp.controllers
         {
             _employeeRepository = employeeRepository;
         }
-        public string Index()
+        public ViewResult Index()
         {
-            return _employeeRepository.GetEmployeeById(1).Name;
+            IEnumerable<Employee> emps = _employeeRepository.getAllEmployees();
+            return View(emps);
         }
-        public JsonResult details() {
+        public ViewResult details() {
             Employee model = _employeeRepository.GetEmployeeById(1);
-            return Json(model);
+            HomeDetailViewModel homeDetailViewModel = new HomeDetailViewModel() { Employee = model,title="BAPS" };
+            return View(homeDetailViewModel);
         }
     }
 }

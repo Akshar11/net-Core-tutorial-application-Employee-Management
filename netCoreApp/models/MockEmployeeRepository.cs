@@ -17,9 +17,15 @@ namespace netCoreApp.models
             };
         }
 
+        public IEnumerable<Employee> getAllEmployees()
+        {
+            return _employeeList;
+        }
+
         public Employee GetEmployeeById(int id)
         {
           return   _employeeList.FirstOrDefault(e=>e.Id==id);
         }
+
     }
 }
