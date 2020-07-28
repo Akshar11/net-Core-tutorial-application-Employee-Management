@@ -4,8 +4,20 @@
     ViewBag.title = "details";
 }
 
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">@Model.Employee.Name</div>
+            <div class="card-body">
+                Id:@Model.Employee.Id
+                Department : @Model.Employee.Department<br>
+                Email:@Model.Employee.Email
+            </div>
+            <a class="card-link">View</a>
+        </div>
 
-    Name :@Model.Employee.Name
-    Department: @Model.Employee.Department
+    </div>
+</div>
+
 
 

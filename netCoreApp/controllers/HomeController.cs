@@ -9,7 +9,7 @@ using netCoreApp.viewModels;
 namespace netCoreApp.controllers
 {
     
-    [Route("[controller]/[action]")]
+    //[Route("[controller]/[action]")]
     public class HomeController : Controller
     {
         private IEmployeeRepository _employeeRepository;
@@ -19,8 +19,8 @@ namespace netCoreApp.controllers
             _employeeRepository = employeeRepository;
         }
 
-        [Route("~/Home")]// Home
-        [Route("~/")] //   starting ignored
+      //  [Route("~/Home")]// Home
+      //  [Route("~/")] //   starting ignored
     //    [Route("[action]")] // Home/Index
         public ViewResult Index()
         {
@@ -28,7 +28,7 @@ namespace netCoreApp.controllers
             return View(emps);
         }
 
-        [Route("{id?}")]
+     //   [Route("{id?}")]
         public ViewResult Details(int? id) {
             Employee model = _employeeRepository.GetEmployeeById(id??1);
             HomeDetailViewModel homeDetailViewModel = new HomeDetailViewModel() { Employee = model,title="BAPS" };

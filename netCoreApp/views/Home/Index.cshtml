@@ -3,12 +3,22 @@
 
     ViewBag.title = "index";
  }
-  
-        <ul>
-            @foreach (var emp in Model) { 
-                <li>
-                    @emp.Name
-                </li>
-            }
-        </ul>
-   
+    <div class="row">
+        @foreach (var emp in Model)
+        {
+            <div class="col-3">
+
+
+                
+                <div class="card">
+                    <div class="card-header">@emp.Name</div>
+                    <div class="card-body">
+                        Department : @emp.Department
+                    </div>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@emp.Id" class="card-link" >View</a>
+                </div>
+
+                
+            </div>
+        }
+    </div> 

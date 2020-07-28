@@ -39,9 +39,10 @@ namespace netCoreApp
             app.UseStaticFiles();
             // app.UseMvcWithDefaultRoute();
             app.UseMvc(
-            //    routes => {
-            //    routes.MapRoute("default","{controller=Home}/{action=Index}/{id?}");
-            //}
+                routes =>
+                {
+                    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                }
                 );
             // app.UseRouting();
 
