@@ -34,5 +34,9 @@ namespace netCoreApp.controllers
             HomeDetailViewModel homeDetailViewModel = new HomeDetailViewModel() { Employee = model,title="BAPS" };
             return View(homeDetailViewModel);
         }
+
+        public ViewResult Create() {
+            return View();
+        }
     }
 }
