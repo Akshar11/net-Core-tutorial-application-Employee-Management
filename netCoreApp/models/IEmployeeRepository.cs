@@ -9,5 +9,6 @@ namespace netCoreApp.models
     {
         Employee GetEmployeeById(int id);
         IEnumerable<Employee> getAllEmployees();
+        Employee addEmployee(Employee emp);
     }
 }

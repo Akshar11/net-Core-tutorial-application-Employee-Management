@@ -35,8 +35,15 @@ namespace netCoreApp.controllers
             return View(homeDetailViewModel);
         }
 
+        [HttpGet]
         public ViewResult Create() {
             return View();
+        }
+
+        [HttpPost]
+        public RedirectToActionResult Create(Employee emp) {
+           Employee newEmp= _employeeRepository.addEmployee(emp);
+            return RedirectToAction("create");
         }
     }
 }

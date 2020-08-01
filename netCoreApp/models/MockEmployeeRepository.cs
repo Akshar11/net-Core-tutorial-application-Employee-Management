@@ -17,6 +17,13 @@ namespace netCoreApp.models
             };
         }
 
+        public Employee addEmployee(Employee emp)
+        {
+            emp.Id = _employeeList.Max(e => e.Id) + 1;
+            _employeeList.Add(emp);
+            return emp;
+        }
+
         public IEnumerable<Employee> getAllEmployees()
         {
             return _employeeList;
