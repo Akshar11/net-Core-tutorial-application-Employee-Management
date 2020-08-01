@@ -41,9 +41,14 @@ namespace netCoreApp.controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(Employee emp) {
-           Employee newEmp= _employeeRepository.addEmployee(emp);
-            return RedirectToAction("create");
+        public IActionResult Create(Employee emp) {
+            if (ModelState.IsValid)
+            {
+                Employee newEmp = _employeeRepository.addEmployee(emp);
+                return RedirectToAction("detail", new { Id = newEmp.Id });
+            }
+
+            return View();
         }
     }
 }
