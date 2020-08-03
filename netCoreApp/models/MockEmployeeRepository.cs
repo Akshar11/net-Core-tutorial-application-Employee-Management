@@ -17,14 +17,23 @@ namespace netCoreApp.models
             };
         }
 
-        public Employee addEmployee(Employee emp)
+        public Employee Add(Employee emp)
         {
             emp.Id = _employeeList.Max(e => e.Id) + 1;
             _employeeList.Add(emp);
             return emp;
         }
 
-        public IEnumerable<Employee> getAllEmployees()
+        public Employee Delete(int id)
+        {
+          Employee employee= _employeeList.FirstOrDefault(e => e.Id == id);
+            if (employee != null) {
+                _employeeList.Remove(employee);
+            }
+            return employee;
+        }
+
+        public IEnumerable<Employee> getAllEmployee()
         {
             return _employeeList;
         }
@@ -34,5 +43,16 @@ namespace netCoreApp.models
           return   _employeeList.FirstOrDefault(e=>e.Id==id);
         }
 
+        public Employee Update(Employee employeeChanges)
+        {
+            Employee employee = _employeeList.FirstOrDefault(e => e.Id == employeeChanges.Id);
+            if (employee != null)
+            {
+                employee.Name = employeeChanges.Name;
+                employee.Email = employeeChanges.Email;
+                employee.Department = employeeChanges.Department;
+            }
+            return employee;
+        }
     }
 }

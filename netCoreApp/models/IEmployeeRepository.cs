@@ -8,7 +8,9 @@ namespace netCoreApp.models
     public interface IEmployeeRepository
     {
         Employee GetEmployeeById(int id);
-        IEnumerable<Employee> getAllEmployees();
-        Employee addEmployee(Employee emp);
+        IEnumerable<Employee> getAllEmployee();
+        Employee Add(Employee emp);
+        Employee Update(Employee employeeChanges);
+        Employee Delete(int id);
     }
 }
