@@ -1,20 +1,23 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using netCoreApp.models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace netCoreApp.models
+namespace netCoreApp.viewModels
 {
-    public class Employee
+    public class EmployeeCreateViewModel
     {
         public int Id { get; set; }
-        [Required] [MaxLength(50,ErrorMessage ="Max length is 50")]
+        [Required]
+        [MaxLength(50, ErrorMessage = "Max length is 50")]
         public string Name { get; set; }
-        [Required]       
+        [Required]
         public string Email { get; set; }
         [Required]
         public Dept? Department { get; set; }
-        public string PhotoPath { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }

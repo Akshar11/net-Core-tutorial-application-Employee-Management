@@ -2,15 +2,20 @@
 @{
 
     ViewBag.title = "index";
+    
  }
     <div class="row">
         @foreach (var emp in Model)
         {
+            var Photopath = "~/images" + (emp.PhotoPath ?? "default.jpg");
             <div class="col-3">
 
 
                 
                 <div class="card">
+                    
+                    <img src="@Photopath" class="card-img-top img-fluid" />
+                
                     <div class="card-header">@emp.Name</div>
                     <div class="card-body">
                         Department : @emp.Department

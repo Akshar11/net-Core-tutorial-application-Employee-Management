@@ -1,13 +1,15 @@
 ﻿@model HomeDetailViewModel
 @{
-  
+
     ViewBag.title = "details";
+    var PhotoPath = "~/images"+ ( Model.Employee.PhotoPath ?? "dafault.jpg");
 }
 
 <div class="row justify-content-center">
     <div class="col-6">
         <div class="card">
-            <div class="card-header">@Model.Employee.Name</div>
+            <img src="@PhotoPath" class="card-img-top img-fluid" />
+           <div class="card-header">@Model.Employee.Name</div>
             <div class="card-body">
                 Id:@Model.Employee.Id
                 Department : @Model.Employee.Department<br>
@@ -18,6 +20,3 @@
 
     </div>
 </div>
-
-
-
