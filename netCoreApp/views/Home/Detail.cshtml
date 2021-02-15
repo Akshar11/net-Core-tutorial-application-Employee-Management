@@ -1,0 +1,27 @@
+﻿@model HomeDetailViewModel
+@{
+
+    ViewBag.title = "details";
+    var PhotoPath = "/images/" + (Model.Employee.PhotoPath ?? "default.jpg");
+}
+
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card">
+
+            <div class="card-header">@Model.Employee.Name</div>
+            <div class="card-body">
+                <img src="@PhotoPath" class="img-fluid" />
+                Id:@Model.Employee.Id
+                Department : @Model.Employee.Department<br>
+                Email:@Model.Employee.Email
+            </div>
+            <div class="card-footer">
+                <a asp-controller="home" asp-action="edit" asp-route-id="@Model.Employee.Id" class="btn-link">Edit</a>
+                <a asp-controller="home" asp-action="index" class="card-link">Back</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,16 +1,19 @@
-﻿@model EmployeeCreateViewModel
+﻿@model EmployeeEditViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
+    var PhotoPath = "/images/" + (Model.ExistingPhotoPath ?? "default.jpg");
 }
 
-<h1>Create Employee</h1>
+<h1>Edit Employee</h1>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data"  method="post">
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ExistingPhotoPath" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -35,20 +38,23 @@
 
                 </div>
             </div>
+
+            <img src="@PhotoPath" class="img-thumbnail" asp-append-version="true"/>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="update" class="btn btn-primary" />
+                <a asp-controller="home" asp-action="index">Cancel</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn-link" asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts{ 
+@section Scripts{
 
-<script>
+    <script>
     $(document).ready(() => {
         $('.custom-file-input').on("change", () => {
             let fileName = $(this).val().split("\\").pop();
@@ -56,6 +62,7 @@
         })
     });
 
-</script>
+    </script>
 }
+
 

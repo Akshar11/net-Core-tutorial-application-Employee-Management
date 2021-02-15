@@ -2,28 +2,32 @@
 @{
 
     ViewBag.title = "index";
-    
- }
-    <div class="row">
-        @foreach (var emp in Model)
-        {
-            var Photopath = "~/images" + (emp.PhotoPath ?? "default.jpg");
-            <div class="col-3">
+
+}
+<div class="row pt-2">
+    @foreach (var emp in Model)
+    {
+        var Photopath = "/images/" + (emp.PhotoPath ?? "default.jpg");
+        <div class="col-12 col-md-4 pt-1 pt-md-0">
+
+            <div class="card">
+
+                <img src="@Photopath" class="card-img-top img-fluid" />
 
 
-                
-                <div class="card">
-                    
-                    <img src="@Photopath" class="card-img-top img-fluid" />
-                
-                    <div class="card-header">@emp.Name</div>
-                    <div class="card-body">
-                        Department : @emp.Department
-                    </div>
-                    <a asp-controller="Home" asp-action="Details" asp-route-id="@emp.Id" class="card-link" >View</a>
+                <div class="card-body">
+                    <p><b>Name:</b> @emp.Name</p>
+                    <p><b>Department</b> : @emp.Department</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-controller="Home" asp-action="Detail" asp-route-id="@emp.Id" class="btn btn-outline-info">View</a>
+                    <a asp-controller="Home" asp-action="Edit" asp-route-id="@emp.Id" class="btn btn-outline-warning">Edit</a>
+                    <a asp-controller="Home" asp-action="Detail" asp-route-id="@emp.Id" class="btn btn-outline-danger">Delete</a>
                 </div>
 
-                
             </div>
-        }
-    </div> 
+
+
+        </div>
+    }
+</div> 
